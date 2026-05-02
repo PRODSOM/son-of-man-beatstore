@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Son of Man Beatstore</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      overflow-x: hidden;
+      font-family: 'Playfair Display', serif;
+      color: white;
+      background: black;
+    }
+
+    .landing {
+      height: 100vh;
+      background: url('landing.gif') no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      position: relative;
+    }
+
+    .landing::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.35);
+      backdrop-filter: blur(2px);
+    }
+
+    .landing-content {
+      position: relative;
+      z-index: 2;
+      animation: fadeIn 2s ease;
+    }
+
+    .landing h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 4.5rem;
+      letter-spacing: 4px;
+      text-shadow:
+        0 0 10px rgba(255,255,255,0.7),
+        0 0 20px rgba(255,255,255,0.5),
+        0 0 40px rgba(255,255,255,0.3);
+    }
+
+    .landing-message {
+      margin-top: 20px;
+      font-size: 1.3rem;
+      opacity: 0.9;
+      letter-spacing: 1px;
+      text-shadow: 0 0 12px rgba(255,255,255,0.4);
+    }
+
+    .enter-btn {
+      margin-top: 40px;
+      padding: 16px 48px;
+      border-radius: 40px;
+      border: 1px solid rgba(255,255,255,0.6);
+      background: rgba(0,0,0,0.45);
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      backdrop-filter: blur(10px);
+      letter-spacing: 1px;
+    }
+
+    .enter-btn:hover {
+      transform: scale(1.06);
+      box-shadow:
+        0 0 20px rgba(255,255,255,0.4),
+        0 0 40px rgba(255,255,255,0.25);
+    }
+
+    .main {
+      min-height: 100vh;
+      background: url('main.gif') no-repeat center center/cover;
+      padding: 70px 40px 120px;
+      display: none;
+      position: relative;
+    }
+
+    .main::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      backdrop-filter: blur(2px);
+    }
+
+    .main-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .header h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 4rem;
+      line-height: 1.2;
+      text-shadow:
+        0 0 10px rgba(255,255,255,0.7),
+        0 0 25px rgba(255,255,255,0.4),
+        0 0 50px rgba(255,255,255,0.25);
+      animation: glowPulse 4s infinite ease-in-out;
+    }
+
+    .main-message {
+      margin-top: 25px;
+      text-align: center;
+      font-size: 1.15rem;
+      opacity: 0.92;
+      line-height: 1.8;
+      text-shadow: 0 0 10px rgba(255,255,255,0.25);
+    }
+
+    .beats {
+      margin-top: 70px;
+      display: flex;
+      justify-content: center;
+      gap: 35px;
+      flex-wrap: wrap;
+    }
+
+    .beat-card {
+      width: 320px;
+      background: rgba(0,0,0,0.45);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 22px;
+      padding: 28px;
+      backdrop-filter: blur(16px);
+      transition: all 0.45s ease;
+      box-shadow: 0 0 25px rgba(0,0,0,0.35);
+    }
+
+    .beat-card:hover {
+      transform: translateY(-8px);
+      box-shadow:
+        0 0 20px rgba(255,255,255,0.08),
+        0 0 45px rgba(255,255,255,0.08);
+    }
+
+    .beat-title {
+      text-align: center;
+      font-size: 1.9rem;
+      margin-bottom: 22px;
+      text-shadow:
+        0 0 12px rgba(255,255,255,0.6),
+        0 0 25px rgba(255,255,255,0.2);
+    }
+
+    audio {
+      width: 100%;
+      margin-bottom: 24px;
+      opacity: 0.9;
+    }
+
+    .buy-btn {
+      width: 100%;
+      padding: 14px;
+      border-radius: 35px;
+      border: 1px solid rgba(255,255,255,0.45);
+      background: rgba(255,255,255,0.05);
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.35s ease;
+      letter-spacing: 1px;
+    }
+
+    .buy-btn:hover {
+      transform: scale(1.04);
+      box-shadow:
+        0 0 18px rgba(255,255,255,0.25),
+        0 0 40px rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .instagram-footer {
+      position: fixed;
+      bottom: 18px;
+      left: 20px;
+      font-size: 0.9rem;
+      opacity: 0.8;
+      z-index: 5;
+      line-height: 1.6;
+      text-shadow: 0 0 10px rgba(255,255,255,0.15);
+    }
+
+    .instagram-footer a {
+      color: white;
+      text-decoration: none;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes glowPulse {
+      0% {
+        text-shadow:
+          0 0 10px rgba(255,255,255,0.7),
+          0 0 25px rgba(255,255,255,0.35);
+      }
+      50% {
+        text-shadow:
+          0 0 18px rgba(255,255,255,0.9),
+          0 0 45px rgba(255,255,255,0.5);
+      }
+      100% {
+        text-shadow:
+          0 0 10px rgba(255,255,255,0.7),
+          0 0 25px rgba(255,255,255,0.35);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .landing h1,
+      .header h1 {
+        font-size: 2.8rem;
+      }
+
+      .landing-message,
+      .main-message {
+        font-size: 1rem;
+        padding: 0 12px;
+      }
+
+      .main {
+        padding: 50px 20px 120px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="landing" id="landing">
+  <div class="landing-content">
+    <h1>Son of Man</h1>
+    <div class="landing-message">✨The Sound of Nights in Africa✨</div>
+    <button class="enter-btn" onclick="enterSite()">Enter the Night</button>
+  </div>
+</div>
+
+<div class="main" id="main">
+  <div class="main-content">
+
+    <div class="header">
+      <h1>
+        Son of Man
+        <br>
+        Beatstore
+      </h1>
+    </div>
+
+    <div class="main-message">
+      ✨Welcome to the Night✨
+      <br>
+      Unlock the Sounds Made For You.
+    </div>
+
+    <div class="beats">
+
+      <div class="beat-card">
+        <div class="beat-title">The Night Awaits</div>
+
+        <p style="opacity:0.75; line-height:1.8; text-align:center; margin-bottom:20px;">
+          New sounds are arriving soon.
+          <br>
+          The city is only beginning to speak.
+        </p>
+
+        <button class="buy-btn" style="cursor:default; opacity:0.7;">
+          Coming Soon
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="instagram-footer">
+    <a href="https://instagram.com/sonofman_sound" target="_blank">
+      instagram.com/sonofman_sound
+    </a>
+    <br>
+    DM for any issues or questions.
+  </div>
+</div>
+
+<script>
+  function enterSite() {
+    document.getElementById('landing').style.display = 'none';
+    document.getElementById('main').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>
