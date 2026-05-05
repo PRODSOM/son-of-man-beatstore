@@ -5,44 +5,70 @@
 <title>Home - Purchase</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Playfair+Display&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
 body {
-  margin:0;
   height:100vh;
   display:flex;
   align-items:center;
   justify-content:center;
-  background:url('beat-landing.gif') center/cover;
+  background:url('beat-landing.gif') no-repeat center/cover;
   color:white;
   font-family:'Playfair Display', serif;
 }
 
 .container {
   background:rgba(0,0,0,0.6);
-  padding:40px;
+  backdrop-filter:blur(12px);
+  padding:50px;
   border-radius:20px;
   text-align:center;
+  width:320px;
 }
 
-a {
-  display:inline-block;
-  margin:10px;
-  padding:12px 30px;
+h1 {
+  font-family:'Cinzel', serif;
+  margin-bottom:10px;
+  text-shadow:0 0 15px rgba(255,255,255,0.7);
+}
+
+h2 {
+  margin-bottom:25px;
+  font-weight:400;
+  opacity:0.9;
+}
+
+audio {
+  width:100%;
+  margin-bottom:25px;
+}
+
+.btn {
+  display:block;
+  margin:10px 0;
+  padding:12px;
+  border-radius:30px;
   border:1px solid white;
+  background:transparent;
   color:white;
   text-decoration:none;
-  border-radius:30px;
+  transition:0.3s;
 }
 
-a:hover { box-shadow:0 0 20px white; }
+.btn:hover {
+  box-shadow:0 0 20px white;
+  transform:scale(1.03);
+}
 
 .footer {
   position:absolute;
   bottom:15px;
   left:15px;
   font-size:0.9rem;
+  opacity:0.8;
 }
 </style>
 </head>
@@ -53,14 +79,21 @@ a:hover { box-shadow:0 0 20px white; }
   <h1>Son of Man</h1>
   <h2>Home</h2>
 
-  <p>Unlock the full WAV file instantly.</p>
+  <audio controls>
+    <source src="home-preview.mp3" type="audio/mpeg">
+  </audio>
 
-  <a href="home-download.html">Purchase — $10</a>
-  <a href="index.html">Back</a>
+  <a class="btn" href="home-download.html">
+    Purchase — $10
+  </a>
+
+  <a class="btn" href="index.html">
+    Back to Store
+  </a>
 </div>
 
 <div class="footer">
-  <a href="https://instagram.com/sonofman_sound" target="_blank">
+  <a href="https://instagram.com/sonofman_sound" target="_blank" style="color:white; text-decoration:none;">
     instagram.com/sonofman_sound
   </a><br>
   DM for any issues or questions.
