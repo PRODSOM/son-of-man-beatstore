@@ -8,7 +8,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
-    * { margin:0; padding:0; box-sizing:border-box; }
+    * {
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
 
     body, html {
       height:100%;
@@ -30,7 +34,9 @@
     .landing h1 {
       font-family:'Cinzel', serif;
       font-size:4rem;
-      text-shadow:0 0 25px rgba(255,255,255,0.7);
+      text-shadow:
+        0 0 15px rgba(255,255,255,0.7),
+        0 0 40px rgba(255,255,255,0.3);
     }
 
     .landing-message {
@@ -47,12 +53,14 @@
       background:rgba(0,0,0,0.4);
       color:white;
       cursor:pointer;
-      transition:0.3s;
+      transition:0.35s ease;
     }
 
     .enter-btn:hover {
-      transform:scale(1.05);
-      box-shadow:0 0 20px white;
+      transform:scale(1.06);
+      box-shadow:
+        0 0 25px rgba(255,255,255,0.35),
+        0 0 55px rgba(255,255,255,0.15);
     }
 
     .main {
@@ -69,7 +77,9 @@
     .header h1 {
       font-family:'Cinzel', serif;
       font-size:3rem;
-      text-shadow:0 0 25px rgba(255,255,255,0.7);
+      text-shadow:
+        0 0 15px rgba(255,255,255,0.8),
+        0 0 40px rgba(255,255,255,0.25);
     }
 
     .main-message {
@@ -82,21 +92,35 @@
     .beats {
       margin-top:60px;
       display:flex;
+      flex-wrap:wrap;
       justify-content:center;
+      gap:30px;
     }
 
     .beat-card {
       width:320px;
       padding:25px;
-      border-radius:15px;
-      background:rgba(0,0,0,0.5);
+      border-radius:20px;
+      background:rgba(0,0,0,0.45);
       backdrop-filter:blur(10px);
+      border:1px solid rgba(255,255,255,0.08);
       text-align:center;
+      transition:0.35s ease;
+    }
+
+    .beat-card:hover {
+      transform:translateY(-5px);
+      box-shadow:
+        0 0 30px rgba(255,255,255,0.08),
+        0 0 70px rgba(255,255,255,0.04);
     }
 
     .beat-title {
       font-size:1.6rem;
       margin-bottom:20px;
+      text-shadow:
+        0 0 12px rgba(255,255,255,0.8),
+        0 0 30px rgba(255,255,255,0.25);
     }
 
     audio {
@@ -106,24 +130,29 @@
 
     .buy-btn {
       width:100%;
-      padding:12px;
+      padding:13px;
       border-radius:30px;
-      border:1px solid white;
-      background:transparent;
+      border:1px solid rgba(255,255,255,0.5);
+      background:rgba(255,255,255,0.05);
       color:white;
       cursor:pointer;
+      transition:0.35s ease;
     }
 
     .buy-btn:hover {
-      box-shadow:0 0 20px white;
+      transform:scale(1.04);
+      box-shadow:
+        0 0 25px rgba(255,255,255,0.25),
+        0 0 60px rgba(255,255,255,0.12);
     }
 
     .instagram-footer {
       position:fixed;
       bottom:15px;
       left:15px;
-      font-size:0.9rem;
-      opacity:0.8;
+      font-size:0.85rem;
+      opacity:0.75;
+      line-height:1.5;
     }
 
     .instagram-footer a {
@@ -137,8 +166,14 @@
 
 <div class="landing" id="landing">
   <h1>Son of Man</h1>
-  <div class="landing-message">✨The Sound of Nights in Africa✨</div>
-  <button class="enter-btn" onclick="enterSite()">Enter</button>
+
+  <div class="landing-message">
+    ✨The Sound of Nights in Africa✨
+  </div>
+
+  <button class="enter-btn" onclick="enterSite()">
+    Enter
+  </button>
 </div>
 
 <div class="main" id="main">
@@ -154,6 +189,7 @@
 
   <div class="beats">
 
+    <!-- HOME -->
     <div class="beat-card">
       <div class="beat-title">Home</div>
 
@@ -162,7 +198,24 @@
       </audio>
 
       <a href="home-buy.html">
-        <button class="buy-btn">Unlock Beat — $10</button>
+        <button class="buy-btn">
+          Unlock Beat — $10
+        </button>
+      </a>
+    </div>
+
+    <!-- NIGHTS -->
+    <div class="beat-card">
+      <div class="beat-title">Nights</div>
+
+      <audio controls>
+        <source src="nights-preview.mp3" type="audio/mpeg">
+      </audio>
+
+      <a href="nights-buy.html">
+        <button class="buy-btn">
+          Unlock Beat — $10
+        </button>
       </a>
     </div>
 
