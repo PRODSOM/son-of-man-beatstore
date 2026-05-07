@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Nights - Purchase</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body {
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:url('beat-landing.gif') no-repeat center/cover;
+  font-family:'Playfair Display', serif;
+  color:white;
+  position:relative;
+}
+
+body::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.62);
+}
+
+.container {
+  position:relative;
+  z-index:2;
+  width:340px;
+  padding:50px 35px;
+  border-radius:25px;
+  background:rgba(0,0,0,0.42);
+  backdrop-filter:blur(10px);
+  border:1px solid rgba(255,255,255,0.08);
+  text-align:center;
+}
+
+h1 {
+  font-family:'Cinzel', serif;
+  font-size:2.5rem;
+  margin-bottom:6px;
+}
+
+.beat-name {
+  font-size:1.6rem;
+  margin-bottom:28px;
+  letter-spacing:1px;
+  text-shadow:
+    0 0 12px rgba(255,255,255,0.85),
+    0 0 30px rgba(255,255,255,0.45),
+    0 0 55px rgba(255,255,255,0.2);
+}
+
+audio {
+  width:100%;
+  margin-bottom:30px;
+}
+
+.buy-btn {
+  display:block;
+  width:100%;
+  padding:15px;
+  border-radius:40px;
+  border:1px solid rgba(255,255,255,0.55);
+  background:rgba(255,255,255,0.05);
+  color:white;
+  text-decoration:none;
+  transition:0.35s ease;
+  margin-bottom:18px;
+}
+
+.buy-btn:hover {
+  transform:scale(1.06);
+  box-shadow:
+    0 0 25px rgba(255,255,255,0.3),
+    0 0 65px rgba(255,255,255,0.18);
+}
+
+.back-btn {
+  display:inline-block;
+  font-size:0.75rem;
+  opacity:0.5;
+  color:white;
+  text-decoration:none;
+}
+
+.footer {
+  position:absolute;
+  bottom:18px;
+  left:20px;
+  font-size:0.85rem;
+  opacity:0.72;
+  line-height:1.5;
+}
+
+.footer a {
+  color:white;
+  text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>Son of Man</h1>
+
+  <div class="beat-name">Nights</div>
+
+  <audio controls>
+    <source src="nights-preview.mp3" type="audio/mpeg">
+  </audio>
+
+  <a class="buy-btn"
+     href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=YOUR-PAYPAL-EMAIL&item_name=Nights Beat&amount=10&currency_code=USD&return=https://prodsom.github.io/son-of-man-beatstore/nights-download.html">
+
+    Purchase — $10
+
+  </a>
+
+  <a class="back-btn" href="index.html">
+    Return to store
+  </a>
+
+</div>
+
+<div class="footer">
+  <a href="https://instagram.com/sonofman_sound" target="_blank">
+    instagram.com/sonofman_sound
+  </a><br>
+  DM for any issues or questions.
+</div>
+
+</body>
+</html>
